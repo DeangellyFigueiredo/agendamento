@@ -1,0 +1,42 @@
+<div style="padding: 10px;">
+  <p style="color: #205171; font-size: 24px; font-weight: bold;">Agendamento de Sala</p>
+  <p>Sala Tambaqui</p>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 37px;" *ngIf="!display"> 
+    <app-card
+    [title]="'Reservar para agora'"
+    [subtitle]="'Reserva instantânea, marque e use.'"
+    [image]="'../../assets/reservarAgora.svg'"
+    ></app-card>
+    <app-card 
+    [title]="'Reservar para depois'"
+    [subtitle]="'Agende sua reserva com antecedência.'"
+    [image]="'../../assets/reservarDepois.svg'"
+    ></app-card>
+  </div>
+
+  <div style="width: 800px; height: 223px; border-radius: 12px;border: 1px solid #9A9A9A; margin-top: 75px; display: block;">
+
+    <div style="background-color: #66BB6A; border-top-right-radius: 12px; border-top-left-radius: 12px;">
+        <div style="width: 100%; height: 122px; color: #FBFBFB; font-size: 57px; font-weight: bold; align-items: center; justify-content: center; display: flex;">
+          {{status}}
+        </div>
+    </div>
+
+    <div style="display: flex;justify-content: space-between; padding: 0px 10px;">
+        <div>
+          <h2>{{currentTime}}</h2>
+          <h3 style="color: #525252;">
+              {{currentDate}}
+          </h3>
+        </div>
+        <div>
+          <h2>Próxima reserva:</h2>
+          <h3 style="color: #525252;">
+              {{nextSchedule}}
+          </h3>
+        </div>
+    </div>
+  </div>
+  
+</div>

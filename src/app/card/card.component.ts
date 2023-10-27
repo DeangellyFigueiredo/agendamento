@@ -9,6 +9,7 @@ export class CardComponent {
   @Input() title: string = '';
   @Input() subtitle: string = '';
   @Input() image: string = '';
+  @Input() buttonEnabled: boolean = true;
 
   onReservar() {
     alert('Reservado com sucesso!');

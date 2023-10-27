@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class OptionsComponent {
   display = false;
-  status = 'Livre';
+  status = 'LIVRE';
   currentTime = '11:00';
   currentDate = '11 de outubro de 2023';
   nextSchedule = '11 de outubro de 2023 | 14:00';

@@ -1,0 +1,57 @@
+.title {
+  color: #205171; font-size: 24px; font-weight: bold; font-family: Roboto;
+}
+
+.subtitle{
+  color: #525252; font-size: 14px; font-family: Roboto
+}
+
+.cards {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 37px;
+}
+
+.menu-below {
+  width: 800px; height: 223px; border-radius: 12px;border: 1px solid #9A9A9A; margin-top: 75px; display: block;
+}
+
+.menu-upper {
+   border-top-right-radius: 12px; border-top-left-radius: 12px;
+}
+
+.menu-upper-content {
+  width: 100%; height: 122px; color: #FBFBFB; font-size: 57px; font-weight: bold; align-items: center; justify-content: center; display: flex;
+}
+
+
+.menu-under{
+  display: flex;justify-content: space-between; padding: 0px 25px;
+}
+
+.subtitle-menu{
+  color: #525252; font-size: 16px; font-family: Roboto; border: 1px solid red;
+}
+
+.title-menu {
+  font-size: 24px; font-weight: bold; color: #2E2E2E; font-family: Roboto; border: 1px solid red;
+}
+
+.h3{
+  padding-top: 0px;
+}
+
+.button {
+  background-color: #205171;
+  color: #FFFFFF;
+  width: 126px;
+  height: 42px;
+  font-size: 16px;
+  border-radius: 20px; 
+  font-family: Roboto;
+}
+
+.title-reserv{
+  color: #205171;
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: bold;
+}

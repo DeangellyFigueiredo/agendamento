@@ -1,8 +1,10 @@
 <div style="padding: 10px;">
-  <p style="color: #205171; font-size: 24px; font-weight: bold;">Agendamento de Sala</p>
-  <p>Sala Tambaqui</p>
+  <div *ngIf="!display">
+    <p class="title">Agendamento de Sala</p>
+    <p class="subtitle">Sala Tambaqui</p>
+  </div>
 
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 37px;" *ngIf="!display"> 
+  <div class="cards" *ngIf="!display"> 
     <app-card
     [title]="'Reservar para agora'"
     [subtitle]="'Reserva instantânea, marque e use.'"
@@ -15,24 +17,34 @@
     ></app-card>
   </div>
 
-  <div style="width: 800px; height: 223px; border-radius: 12px;border: 1px solid #9A9A9A; margin-top: 75px; display: block;">
+  <div style="display: flex;" *ngIf="display"> 
+      <div style="align-items: center; justify-content: center; display: flex; border: 1px solid red;">
+        <button class="button"> VOLTAR</button>
+      </div>
+      <div style="padding: 10px;  border: 1px solid red;">
+        <h1 class="title-reserv">Reservar agora</h1>
+        <h3 class="subtitle">Sala Tambaqui</h3>
+      </div>
+  </div>
 
-    <div style="background-color: #66BB6A; border-top-right-radius: 12px; border-top-left-radius: 12px;">
-        <div style="width: 100%; height: 122px; color: #FBFBFB; font-size: 57px; font-weight: bold; align-items: center; justify-content: center; display: flex;">
+  <div class="menu-below">
+    <div class="menu-upper" 
+    [ngStyle]="status === 'LIVRE' ? {'background-color': '#66BB6A', 'color': 'white'} : {'background-color': '#f44336', 'color': 'white'}">
+        <div class="menu-upper-content">
           {{status}}
         </div>
     </div>
 
-    <div style="display: flex;justify-content: space-between; padding: 0px 10px;">
+    <div class="menu-under">
         <div>
-          <h2>{{currentTime}}</h2>
-          <h3 style="color: #525252;">
+          <h2 class="title-menu">{{currentTime}}</h2>
+          <h3 class="subtitle-menu">
               {{currentDate}}
           </h3>
         </div>
         <div>
-          <h2>Próxima reserva:</h2>
-          <h3 style="color: #525252;">
+          <h2 class="title-menu">Próxima reserva:</h2>
+          <h3 class="subtitle-menu">
               {{nextSchedule}}
           </h3>
         </div>

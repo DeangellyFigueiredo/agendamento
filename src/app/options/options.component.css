@@ -11,28 +11,49 @@
 }
 
 .menu-below {
-  width: 800px; height: 223px; border-radius: 12px;border: 1px solid #9A9A9A; margin-top: 75px; display: block;
+  width: 800px; 
+  height: 223px; 
+  border-radius:12px;
+  margin-top: 75px; 
+  display: block;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: 1px solid  linear-gradient(to top, #FFF, rgb(102, 187, 106));
 }
 
 .menu-upper {
-   border-top-right-radius: 12px; border-top-left-radius: 12px;
+   border-top-right-radius: 12px; 
+   border-top-left-radius: 12px;
 }
 
 .menu-upper-content {
-  width: 100%; height: 122px; color: #FBFBFB; font-size: 57px; font-weight: bold; align-items: center; justify-content: center; display: flex;
+  width: 100%; 
+  height: 122px; 
+  color: #FBFBFB; 
+  font-size: 57px; 
+  font-weight: bold; 
+  align-items: center; 
+  justify-content: center; 
+  display: flex;
 }
 
 
 .menu-under{
-  display: flex;justify-content: space-between; padding: 0px 25px;
+  display: flex;
+  justify-content: space-between; 
+  padding: 0px 25px;
 }
 
 .subtitle-menu{
-  color: #525252; font-size: 16px; font-family: Roboto; border: 1px solid red;
+  color: #525252; 
+  font-size: 16px; 
+  font-family: Roboto; 
 }
 
 .title-menu {
-  font-size: 24px; font-weight: bold; color: #2E2E2E; font-family: Roboto; border: 1px solid red;
+  font-size: 24px; 
+  font-weight: bold; 
+  color: #2E2E2E; 
+  font-family: Roboto; 
 }
 
 .h3{
@@ -45,6 +66,7 @@
   width: 126px;
   height: 42px;
   font-size: 16px;
+  border: 1px solid #205171;
   border-radius: 20px; 
   font-family: Roboto;
 }

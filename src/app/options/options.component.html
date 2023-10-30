@@ -1,54 +1,67 @@
-<div style="padding: 10px;">
-  <div *ngIf="!display">
+<div class="option-container">
+  <div>
     <p class="title">Agendamento de Sala</p>
     <p class="subtitle">Sala Tambaqui</p>
   </div>
 
-  <div class="cards" *ngIf="!display"> 
+  <div class="cards" *ngIf="!display">
     <app-card
-    [title]="'Reservar para agora'"
-    [subtitle]="'Reserva instantânea, marque e use.'"
-    [image]="'../../assets/reservarAgora.svg'"
+      [title]="'Reservar para agora'"
+      [subtitle]="'Reserva instantânea, marque e use.'"
+      [image]="'../../assets/reservarAgora.svg'"
+      [display]="display"
     ></app-card>
-    <app-card 
-    [title]="'Reservar para depois'"
-    [subtitle]="'Agende sua reserva com antecedência.'"
-    [image]="'../../assets/reservarDepois.svg'"
+    <app-card
+      [title]="'Reservar para depois'"
+      [subtitle]="'Agende sua reserva com antecedência.'"
+      [image]="'../../assets/reservarDepois.svg'"
+      [display]="display"
     ></app-card>
   </div>
 
-  <div style="display: flex;" *ngIf="display"> 
-      <div style="align-items: center; justify-content: center; display: flex; border: 1px solid red;">
-        <button class="button"> VOLTAR</button>
-      </div>
-      <div style="padding: 10px;  border: 1px solid red;">
-        <h1 class="title-reserv">Reservar agora</h1>
-        <h3 class="subtitle">Sala Tambaqui</h3>
-      </div>
+  <div style="display: flex" *ngIf="display">
+    <div
+      style="
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        border: 1px solid red;
+      "
+    >
+      <button class="button" (click)="onClick()">VOLTAR</button>
+    </div>
+    <div style="padding: 10px; border: 1px solid red">
+      <h1 class="title-reserv">Reservar agora</h1>
+      <h3 class="subtitle">Sala Tambaqui</h3>
+    </div>
   </div>
 
   <div class="menu-below">
-    <div class="menu-upper" 
-    [ngStyle]="status === 'LIVRE' ? {'background-color': '#66BB6A', 'color': 'white'} : {'background-color': '#f44336', 'color': 'white'}">
-        <div class="menu-upper-content">
-          {{status}}
-        </div>
+    <div
+      class="menu-upper"
+      [ngClass]="{
+        'menu-upper-available': status == 'LIVRE',
+        'menu-upper-reserved': status == 'RESERVADO'
+      }"
+    >
+      <div class="menu-upper-content">
+        {{ status }}
+      </div>
     </div>
 
     <div class="menu-under">
-        <div>
-          <h2 class="title-menu">{{currentTime}}</h2>
-          <h3 class="subtitle-menu">
-              {{currentDate}}
-          </h3>
-        </div>
-        <div>
-          <h2 class="title-menu">Próxima reserva:</h2>
-          <h3 class="subtitle-menu">
-              {{nextSchedule}}
-          </h3>
-        </div>
+      <div>
+        <h2 class="title-menu">{{ currentTime }}</h2>
+        <h3 class="subtitle-menu">
+          {{ currentDate }}
+        </h3>
+      </div>
+      <div>
+        <h2 class="title-menu">Próxima reserva:</h2>
+        <h3 class="subtitle-menu">
+          {{ nextSchedule }}
+        </h3>
+      </div>
     </div>
   </div>
-  
 </div>

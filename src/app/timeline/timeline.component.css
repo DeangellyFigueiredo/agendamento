@@ -1,0 +1,76 @@
+
+.container {
+    width: auto;
+    display: grid;
+}
+
+.container .hours {
+    width: 68%;
+    height: 60px;
+    border-bottom: 1px solid #00000033;
+    border-left: 1px solid #00000033 ;
+}
+
+.container .selectorOfHours {
+    width: 68%;
+    height: 2px;
+    background: red;
+}
+
+.container .StyledBoxHours {
+    margin-left:40px ;
+}
+
+.container .reservation {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+.container .StyledReserved {
+    width:64%;
+    margin-left:45px ;
+    background: #039ae586;
+    position: absolute;
+    color: white;
+    font-size: medium;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.container .styledSelector{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+.container .StyledReserved p {
+    padding: 0%;
+    margin: 0%;
+}
+
+.container .circleOfHours {
+    background: rgba(198, 83, 83, 0.696);
+    border: 1px solid red;
+    color: white;
+    text-align: center;
+    font-size: small;
+    border-radius: 4px;
+    height: 15px;
+    font-weight: bold;
+    width: 40px;
+}
+
+.Select {
+    padding: 20px 0;
+}
+
+.Select .selectRooms{
+    width: 40%;
+    height: 40px;
+    border: 1px solid #9A9A9A;
+    background: #FFF;
+    border-radius: 4px;
+}

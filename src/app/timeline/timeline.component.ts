@@ -12,14 +12,12 @@ export class TimelineComponent implements OnInit{
     var styledSelector = document.getElementById('styledSelector');
     var circleOfHours = document.getElementById('circleOfHours')
     var now = new Date();
-    var currentHour = 18/* now.getHours(); */
-    var currentMinute = 0/* now.getMinutes() */;
+    var currentHour = now.getHours();
+    var currentMinute = now.getMinutes();
     var timeDifference = currentHour - 8;
     
     
     var newPosition = ((timeDifference % 12) * 60) + currentMinute ; 
-    var teste = timeDifference%12
-    console.log(newPosition, teste)
 
     if(styledSelector && circleOfHours){
       styledSelector.style.top = newPosition + 'px';
@@ -35,7 +33,6 @@ export class TimelineComponent implements OnInit{
 
 
   var newPosition = ((timeDifference % 12) * 60) + currentMinute; // Obtém o resto da divisão por 12 para as horas e adiciona os minutos
-  /* console.log(newPosition); */
 
  if(reservation && titleReserved){
   reservation.style.top = newPosition + 'px';

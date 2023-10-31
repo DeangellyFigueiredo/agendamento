@@ -1,9 +1,7 @@
 <div class="option-container">
-  <div>
+  <div *ngIf="!display">
     <p class="title">Agendamento de Sala</p>
-    <p class="subtitle">Sala Tambaqui</p>
   </div>
-
   <div class="cards" *ngIf="!display">
     <app-card
       [title]="'Reservar para agora'"
@@ -19,19 +17,23 @@
     ></app-card>
   </div>
 
-  <div style="display: flex" *ngIf="display">
-    <div
-      style="
-        align-items: center;
-        justify-content: center;
-        display: flex;
-      "
-    >
-      <button class="button" (click)="onClick()">VOLTAR</button>
+  <div class="ContainerCheckbox" *ngIf="display">
+    <div class="titleCheckbox">
+        <button class="button" (click)="onClick()">VOLTAR</button>
+      <h1 class="title-reserv">Reservar agora</h1>
     </div>
     <div style="padding: 10px">
-      <h1 class="title-reserv">Reservar agora</h1>
-      <h3 class="subtitle">Sala Tambaqui</h3>
+      <fieldset class="box">
+        <legend class="legend">Sala Tambaqui</legend>
+        <div class="inputOptions">
+          <input type="checkbox" id="coding" name="interest" value="coding" checked />
+          <label for="coding">Coding</label>
+        </div>
+        <div class="inputOptions">
+          <input type="checkbox" id="coding" name="interest" value="coding" checked />
+          <label for="coding">Coding</label>
+        </div>
+      </fieldset>
     </div>
   </div>
 

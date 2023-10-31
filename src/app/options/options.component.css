@@ -92,6 +92,7 @@
   font-size: 16px;
   border-radius: 20px;
   font-family: Roboto;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .title-reserv {
@@ -159,6 +160,13 @@
   border: 1px solid #205171;
   border-radius: 20px; 
   font-family: Roboto;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  cursor: pointer;
+  background:#2a72a2 ;
+  border: 1px solid #2a72a2;
 }
 
 .title-reserv {
@@ -172,4 +180,49 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
+}
+
+.ContainerCheckbox {
+  display: grid;
+}
+
+.ContainerCheckbox .titleCheckbox{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.ContainerCheckbox .box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 329px;
+  gap: 10px;
+  overflow-y: auto;
+  margin-top: 20px;
+  border-top: 2px  solid #00000025;
+  border-bottom: transparent;
+  border-left: transparent;
+  border-right: transparent;
+}
+
+.ContainerCheckbox .legend {
+  font-size: larger;
+  font-weight: bold;
+  text-align: center;
+  padding:  15px 5px;
+}
+
+.ContainerCheckbox .inputOptions{
+  background: #FFF;
+  padding: 10px;
+  height: 20px;
+  border: 1px solid #00000025;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  transition: background 0.3s ease;
+}
+
+.ContainerCheckbox .inputOptions:hover {
+  cursor: pointer;
+  background:#0000001c ;
 }

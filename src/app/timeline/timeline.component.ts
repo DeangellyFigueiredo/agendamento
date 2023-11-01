@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { addDays, addMonths } from 'date-fns';
+import { addDays } from 'date-fns';
 
 @Component({
   selector: 'app-timeline',

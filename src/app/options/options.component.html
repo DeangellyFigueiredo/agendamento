@@ -17,7 +17,7 @@
     ></app-card>
   </div>
 
-  <div class="ContainerCheckbox" *ngIf="display">
+  <div class="ContainerCheckbox" id="ContainerCheckbox" *ngIf="display">
     <div class="titleCheckbox">
         <button class="button" (click)="onClick()">VOLTAR</button>
       <h1 class="title-reserv">Reservar agora</h1>
@@ -25,7 +25,7 @@
     <div style="padding: 10px">
       <fieldset class="box">
         <legend class="legend">Sala Tambaqui</legend>
-        <div class="inputOptions">
+        <div class="inputOptions" id="Options" >
           <input type="checkbox" id="coding" name="interest" value="coding" checked />
           <label for="coding">Coding</label>
         </div>

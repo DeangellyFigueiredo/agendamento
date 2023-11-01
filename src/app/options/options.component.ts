@@ -17,8 +17,8 @@ export class OptionsComponent implements OnInit {
   display = false;
 
   createCheckbox() {
-    console.log(new Date().toUTCString())
     var checkboxContainer = document.getElementById('Options');
+
     this.selectedHours.forEach((hour)=> {
       var checkbox = document.createElement("input");
       checkbox.type = "checkbox";
@@ -28,6 +28,7 @@ export class OptionsComponent implements OnInit {
       var label = document.createElement("label");
       label.appendChild(checkbox);
       label.appendChild(document.createTextNode(hour));
+
       if(checkboxContainer){
         checkboxContainer.appendChild(label);
       }
@@ -49,4 +50,5 @@ export class OptionsComponent implements OnInit {
     this.display = this.displayService.display;
     this.createCheckbox()
   }
+  
 }

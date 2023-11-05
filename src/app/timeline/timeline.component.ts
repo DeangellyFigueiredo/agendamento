@@ -10,31 +10,34 @@ export class TimelineComponent implements OnInit{
   rooms = ['Tambaqui', 'Jaraqui', 'Candiru'];
   reservations = [
     { name: 'Rserva 01',startHour:'8:0', endHour: '9:0' },
-    { name: 'Rserva 02',startHour:'14:0', endHour: '14:30' },
+    { name: 'Rserva 02',startHour:'14:0', endHour: '14:0' },
   ]
   
   moveStyledSelector() {
     var styledSelector = document.getElementById('styledSelector');
     var circleOfHours = document.getElementById('circleOfHours');
     var now = new Date();
-    var currentHour = now.getHours() ;
+    var currentHour =  now.getHours() ;
     var currentMinute = now.getMinutes();
-    var totalMinutes = (currentHour - 8) * 60 + currentMinute +15; // Total de minutos desde as 8h
+    var totalMinutes = (currentHour - 8) * 60 + currentMinute +12;
+    var validTime = currentHour < 19
     
     var pixelsPerHour = 675 / 11; 
     var newPosition = (totalMinutes / 60) * pixelsPerHour;
     
-    if(styledSelector && circleOfHours){
+    if(validTime && styledSelector && circleOfHours){
       styledSelector.style.top = newPosition + 'px';
       circleOfHours.innerText = `${currentHour}:${currentMinute}`;
+    }else if(styledSelector){
+      styledSelector.style.display = 'none' 
     }
   }
 
   moveStyledReserved() {
-    console.log(this.reservations)
+    
     var teste = [
       { name: 'Rserva 01',startHour:'8:0', endHour: '9:0' },
-      { name: 'Rserva 02',startHour:'14:0', endHour: '15:30' },
+      { name: 'Rserva 02',startHour:'14:0', endHour: '14:59' },
     ]
     if(teste?.length > 0){
     teste.forEach((item, idx)=> {

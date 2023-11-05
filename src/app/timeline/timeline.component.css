@@ -130,4 +130,5 @@
 .calendar #month{
     font-size: medium;
     color: #717070;
+    padding: 10px;
 }

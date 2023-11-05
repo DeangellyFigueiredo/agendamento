@@ -8,37 +8,44 @@ import { addDays } from 'date-fns';
 })
 export class TimelineComponent implements OnInit{
   rooms = ['Tambaqui', 'Jaraqui', 'Candiru'];
-  
-  moveStyledSelector() {
-    var styledSelector = document.getElementById('styledSelector');
-    var circleOfHours = document.getElementById('circleOfHours')
-    var now = new Date();
-    var currentHour = now.getHours();
-    var currentMinute = now.getMinutes();
-    var timeDifference = currentHour - 8;
-    
-    var newPosition = ((timeDifference % 12) * 60) + currentMinute ; 
 
-    if(styledSelector && circleOfHours){
+moveStyledSelector() {
+  var styledSelector = document.getElementById('styledSelector');
+  var circleOfHours = document.getElementById('circleOfHours');
+  var now = new Date();
+  var currentHour =  now.getHours() ;
+  var currentMinute = now.getMinutes();
+  var totalMinutes = (currentHour - 8) * 60 + currentMinute +15; // Total de minutos desde as 8h
+
+  var pixelsPerHour = 675 / 11; 
+  var newPosition = (totalMinutes / 60) * pixelsPerHour;
+
+  if(styledSelector && circleOfHours){
       styledSelector.style.top = newPosition + 'px';
-      circleOfHours.innerText = `${currentHour}:${currentMinute}`
-    }
+      circleOfHours.innerText = `${currentHour}:${currentMinute}`;
+  }
 }
-  moveStyledReserved () {
-  var reservation = document.getElementById('StyledReserved')
-  var titleReserved = document.getElementById('titleReserved')
-  var currentHour = 9;
-  var currentMinute = 0;
-  var timeDifference = currentHour - 8;
-
-
-  var newPosition = ((timeDifference % 12) * 60) + currentMinute; // Obtém o resto da divisão por 12 para as horas e adiciona os minutos
-
- if(reservation && titleReserved){
-  reservation.style.top = newPosition + 'px';
-  titleReserved.innerText = `${currentHour}:${currentMinute} - teste`
- }
+moveStyledReserved() {
+  var reservation = document.getElementById('StyledReserved');
+  var titleReserved = document.getElementById('titleReserved');
+  var startHour = 8;
+  var startMinute = 0;
+  var endHour = 9;
+  var endMinute = 0;
   
+  var startTotalMinutes = (startHour - 8) * 60 + startMinute + 15; 
+  var endTotalMinutes = (endHour - 8) * 60 + endMinute + 15;
+  
+  var pixelsPerHour = 675 / 11;
+  
+  var newPosition = (startTotalMinutes / 60) * pixelsPerHour;
+  var reservationHeight = ((endTotalMinutes - startTotalMinutes) / 60) * pixelsPerHour;
+  
+  if (reservation && titleReserved) {
+      reservation.style.top = newPosition + 'px';
+      reservation.style.height = reservationHeight + 'px';
+      titleReserved.innerText = `${startHour}:${startMinute} até ${endHour}:${endMinute} - teste`;
+  }
 }
   calendar() {
     var monhts = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];

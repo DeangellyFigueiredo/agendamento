@@ -21,8 +21,8 @@
       </div>
     </div>
     <div class="container">
-        <div id="reservation" class="reservation">
-            <div class="StyledReserved" id="StyledReserved"><p id="titleReserved"></p></div>
+        <div id="reservation" class="reservation" *ngFor="let item of reservations; let idx = index">
+            <div class="StyledReserved" id={{idx}}><p id={{idx}}></p></div>
         </div>
         <div class="styledSelector" id="styledSelector">
           <div class="circleOfHours" id="circleOfHours"></div>

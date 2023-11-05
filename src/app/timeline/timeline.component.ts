@@ -8,43 +8,58 @@ import { addDays } from 'date-fns';
 })
 export class TimelineComponent implements OnInit{
   rooms = ['Tambaqui', 'Jaraqui', 'Candiru'];
-
-moveStyledSelector() {
-  var styledSelector = document.getElementById('styledSelector');
-  var circleOfHours = document.getElementById('circleOfHours');
-  var now = new Date();
-  var currentHour =  now.getHours() ;
-  var currentMinute = now.getMinutes();
-  var totalMinutes = (currentHour - 8) * 60 + currentMinute +15; // Total de minutos desde as 8h
-
-  var pixelsPerHour = 675 / 11; 
-  var newPosition = (totalMinutes / 60) * pixelsPerHour;
-
-  if(styledSelector && circleOfHours){
+  reservations = [
+    { name: 'Rserva 01',startHour:'8:0', endHour: '9:0' },
+    { name: 'Rserva 02',startHour:'14:0', endHour: '14:30' },
+  ]
+  
+  moveStyledSelector() {
+    var styledSelector = document.getElementById('styledSelector');
+    var circleOfHours = document.getElementById('circleOfHours');
+    var now = new Date();
+    var currentHour = now.getHours() ;
+    var currentMinute = now.getMinutes();
+    var totalMinutes = (currentHour - 8) * 60 + currentMinute +15; // Total de minutos desde as 8h
+    
+    var pixelsPerHour = 675 / 11; 
+    var newPosition = (totalMinutes / 60) * pixelsPerHour;
+    
+    if(styledSelector && circleOfHours){
       styledSelector.style.top = newPosition + 'px';
       circleOfHours.innerText = `${currentHour}:${currentMinute}`;
+    }
   }
-}
-moveStyledReserved() {
-  var reservation = document.getElementById('StyledReserved');
-  var titleReserved = document.getElementById('titleReserved');
-  var startHour = 8;
-  var startMinute = 0;
-  var endHour = 9;
-  var endMinute = 0;
-  
-  var startTotalMinutes = (startHour - 8) * 60 + startMinute + 15; 
-  var endTotalMinutes = (endHour - 8) * 60 + endMinute + 15;
-  
-  var pixelsPerHour = 675 / 11;
-  
-  var newPosition = (startTotalMinutes / 60) * pixelsPerHour;
-  var reservationHeight = ((endTotalMinutes - startTotalMinutes) / 60) * pixelsPerHour;
-  
-  if (reservation && titleReserved) {
-      reservation.style.top = newPosition + 'px';
-      reservation.style.height = reservationHeight + 'px';
-      titleReserved.innerText = `${startHour}:${startMinute} até ${endHour}:${endMinute} - teste`;
+
+  moveStyledReserved() {
+    console.log(this.reservations)
+    var teste = [
+      { name: 'Rserva 01',startHour:'8:0', endHour: '9:0' },
+      { name: 'Rserva 02',startHour:'14:0', endHour: '15:30' },
+    ]
+    if(teste?.length > 0){
+    teste.forEach((item, idx)=> {
+    var reservation = document.getElementById(`${idx}`);
+    var titleReserved = document.getElementById(`${idx}`);
+    var startTime = item.startHour.split(':')
+    var finisheTime = item.endHour.split(':')
+    var startHour = Number(startTime[0]);
+    var startMinute = Number(startTime[1]);
+    var endHour = Number(finisheTime[0]);
+    var endMinute = Number(finisheTime[1]);
+    var startTotalMinutes = (startHour - 8) * 60 + startMinute + 15; 
+    var endTotalMinutes = (endHour - 8) * 60 + endMinute + 15;
+    
+    var pixelsPerHour = 685 / 11;
+    
+    var newPosition = (startTotalMinutes / 60) * pixelsPerHour;
+    var reservationHeight = ((endTotalMinutes - startTotalMinutes) / 60) * pixelsPerHour;
+    
+    if (reservation && titleReserved) {
+        reservation.style.top = newPosition + 'px';
+        reservation.style.height = reservationHeight + 'px';
+        titleReserved.innerText = `${startHour}:${startMinute} até ${endHour}:${endMinute} - ${item.name}`;
+    }
+    })
   }
 }
   calendar() {
@@ -124,7 +139,8 @@ moveStyledReserved() {
   }
 
   ngOnInit(): void {
-    this.moveStyledSelector() 
+    this.moveStyledSelector()
+    this.moveStyledReserved() 
     this.calendar()
     setInterval(this.moveStyledSelector,1000)
     setInterval(this.moveStyledReserved, 1000)

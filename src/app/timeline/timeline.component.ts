@@ -17,7 +17,6 @@ export class TimelineComponent implements OnInit{
     var currentMinute = now.getMinutes();
     var timeDifference = currentHour - 8;
     
-    
     var newPosition = ((timeDifference % 12) * 60) + currentMinute ; 
 
     if(styledSelector && circleOfHours){

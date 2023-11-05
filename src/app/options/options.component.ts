@@ -16,26 +16,6 @@ export class OptionsComponent implements OnInit {
   nextSchedule = `${this.date.getDate()} de ${this.monhts[this.date.getMonth()]} de ${this.date.getFullYear()} | ${this.date.getHours()}:${this.date.getMinutes()}`;;
   display = false;
 
-  createCheckbox() {
-    var checkboxContainer = document.getElementById('Options');
-
-    this.selectedHours.forEach((hour)=> {
-      var checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      checkbox.value = hour;
-      checkbox.id = hour; 
-  
-      var label = document.createElement("label");
-      label.appendChild(checkbox);
-      label.appendChild(document.createTextNode(hour));
-
-      if(checkboxContainer){
-        checkboxContainer.appendChild(label);
-      }
-  });
-
-  }
-
   onClick() {
     this.displayService.displayChange.emit(false);
   }
@@ -48,7 +28,6 @@ export class OptionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.display = this.displayService.display;
-    this.createCheckbox()
   }
   
 }

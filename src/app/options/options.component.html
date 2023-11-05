@@ -25,9 +25,12 @@
     <div style="padding: 10px">
       <fieldset class="box">
         <legend class="legend">Sala Tambaqui</legend>
-        <div class="inputOptions" id="Options" >
-          {{selectedHours}}
-        </div>
+          <div *ngFor="let item of selectedHours" class="inputOptions">
+            <input type="checkbox" name="checkbox"/>
+            <label for="checkbox">
+              {{item}}
+            </label>
+          </div>
       </fieldset>
     </div>
   </div>

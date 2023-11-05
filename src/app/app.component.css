@@ -1,3 +1,9 @@
-.card{
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-height: 100vh;
+}
+
+.container .card{
   padding-left: 92px;
 }

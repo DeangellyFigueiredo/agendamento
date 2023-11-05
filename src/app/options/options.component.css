@@ -213,9 +213,12 @@
 }
 
 .ContainerCheckbox .inputOptions{
+  display: flex;
+  align-items: center;
+  gap: 10px;
   background: #FFF;
   padding: 10px;
-  height: 20px;
+  height: 35px;
   border: 1px solid #00000025;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;

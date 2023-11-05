@@ -40,16 +40,6 @@ export class TimelineComponent implements OnInit{
  }
   
 }
-
-  createOptionsSelect() {
-    this.rooms.forEach((item, index)=>{
-      var selectBox = document.getElementById('selectRooms')
-      var options = document.createElement('option')
-      options.innerText = 'Sala '+item
-      options.value = `${index}`
-      selectBox?.appendChild(options)
-    })
-}
   calendar() {
     var monhts = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
     var DaysoftheWeek = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
@@ -128,7 +118,6 @@ export class TimelineComponent implements OnInit{
 
   ngOnInit(): void {
     this.moveStyledSelector() 
-    this.createOptionsSelect()
     this.calendar()
     setInterval(this.moveStyledSelector,1000)
     setInterval(this.moveStyledReserved, 1000)

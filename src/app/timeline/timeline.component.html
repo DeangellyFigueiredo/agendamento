@@ -1,7 +1,8 @@
 <div class="mb-3">
     <div class="Select">
-        <select class="form-select form-select-lg" class="selectRooms" id="selectRooms">
+        <select class="form-select form-select-lg" class="selectRooms">
           <option disabled selected >Selecionar Sala</option>
+            <option *ngFor="let item of rooms">{{item}}</option>
         </select>
       <div class="calendar">
         <div>

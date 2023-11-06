@@ -34,7 +34,7 @@ export class TimelineComponent implements OnInit{
       styledSelector.style.display = 'hidden' 
       selectorOfHours.style.display = 'none'
       circleOfHours.style.width = '95%'
-      circleOfHours.innerText = 'O período de reservas é de 8h até as 18h'
+      circleOfHours.innerText = 'O período de fazer reservas é de 8h até as 18h'
     }
   }
 

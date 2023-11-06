@@ -16,11 +16,13 @@ export class TimelineComponent implements OnInit{
   moveStyledSelector() {
     var styledSelector = document.getElementById('styledSelector');
     var circleOfHours = document.getElementById('circleOfHours');
+    var selectorOfHours = document.getElementById('selectorOfHours')
+
     var now = new Date();
-    var currentHour =  now.getHours() ;
+    var currentHour = now.getHours() ;
     var currentMinute = now.getMinutes();
     var totalMinutes = (currentHour - 8) * 60 + currentMinute +12;
-    var validTime = currentHour < 19
+    var validTime = currentHour <19 && currentHour >= 8
     
     var pixelsPerHour = 675 / 11; 
     var newPosition = (totalMinutes / 60) * pixelsPerHour;
@@ -28,13 +30,15 @@ export class TimelineComponent implements OnInit{
     if(validTime && styledSelector && circleOfHours){
       styledSelector.style.top = newPosition + 'px';
       circleOfHours.innerText = `${currentHour}:${currentMinute}`;
-    }else if(styledSelector){
-      styledSelector.style.display = 'none' 
+    }else if(styledSelector && circleOfHours && selectorOfHours){
+      styledSelector.style.display = 'hidden' 
+      selectorOfHours.style.display = 'none'
+      circleOfHours.style.width = '95%'
+      circleOfHours.innerText = 'O período de reservas é de 8h até as 18h'
     }
   }
 
   moveStyledReserved() {
-    
     var teste = [
       { name: 'Rserva 01',startHour:'8:0', endHour: '9:0' },
       { name: 'Rserva 02',startHour:'14:0', endHour: '14:59' },
